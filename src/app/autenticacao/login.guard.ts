@@ -6,17 +6,17 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AutenticacaoGuard implements CanLoad {
+export class LoginGuard implements CanLoad {
 
   constructor(private usuarioService: UsuarioService, private router: Router) {}
 
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if(!this.usuarioService.estaLogado()) {
-      this.router.navigate(['']);
+    if(this.usuarioService.estaLogado()){
+      this.router.navigate(['animais']);
       return false;
     }
-    return true;
+      return true;
   }
 }
