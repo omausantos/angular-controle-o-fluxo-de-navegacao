@@ -22,7 +22,7 @@ export class ComentariosComponent implements OnInit {
   ngOnInit(): void {
     this.comentarios$ = this.comentariosService.buscaComentario(this.id);
     this.comentarioForm = this.formBuilder.group({
-      comentario: ['', Validators.maxLength(300)]
+      comentario: ['', [Validators.maxLength(300), Validators.minLength(5)]]
     })
   }
 
