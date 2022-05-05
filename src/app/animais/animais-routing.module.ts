@@ -14,13 +14,13 @@ const routes: Routes = [
     }
   },
   {
+    path: 'novo',
+    component: NovoAnimalComponent
+  },
+  {
     path: ':animalId',
     component: DetalheAnimalComponent
   },
-  {
-    path: 'novo',
-    component: NovoAnimalComponent
-  }
 ];
 
 @NgModule({
