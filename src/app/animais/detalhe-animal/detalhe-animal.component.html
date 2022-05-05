@@ -13,6 +13,12 @@
         <i class="fa fa-comment-o fa-2x mr-2 ml-2">{{ animal.comments }}</i>
         <i (click)="excluir()" class="fa fa-trash-o fa-2x pull-right">22</i>
       </small>
+      <app-comentarios
+        [id]="animal.id"
+        *ngIf="animal.allowComments; else warning"></app-comentarios>
+      <ng-template #warning>
+        <p>Comentários não disponiveis para essa fotinha linda</p>
+      </ng-template>
     </div>
   </div>
 </div>
