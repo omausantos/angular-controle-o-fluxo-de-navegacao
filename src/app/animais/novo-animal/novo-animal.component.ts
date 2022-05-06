@@ -39,9 +39,10 @@ export class NovoAnimalComponent implements OnInit {
         finalize(()=> this.router.navigate(['animais']))
       ).subscribe(
         (event: HttpEvent<any>) => {
-          if(event.type === HttpEventType.DownloadProgress) {
+          if(event.type == HttpEventType.UploadProgress) {
             const total = event.total ?? 1;
             this.percentualConcluido = Math.round(100 * (event.loaded / total))
+            console.log(this.percentualConcluido)
           }
         },
         (error) => console.error(error)
